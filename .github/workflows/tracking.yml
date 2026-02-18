@@ -4,9 +4,10 @@ on:
   workflow_call:
     inputs:
       tracking_issue_number:
-        description: 'Issue number to track activity'
-        required: true
+        description: 'Issue number to track activity (overrides TRACKING_ISSUE_NUMBER variable)'
+        required: false
         type: string
+        default: ''
 
 jobs:
   update-tracking:
@@ -19,7 +20,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const trackingIssueNumber = '${{ inputs.tracking_issue_number }}';
+            const trackingIssueNumber = '${{ inputs.tracking_issue_number || vars.TRACKING_ISSUE_NUMBER }}';
+            if (!trackingIssueNumber || trackingIssueNumber === '') {
+              console.log('No tracking issue configured');
+              return;
+            }
             const { action, number } = context.payload;
             const isIssue = context.eventName === 'issues';
             const item = context.payload[isIssue ? 'issue' : 'pull_request'];
