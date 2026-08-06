@@ -1,5 +1,7 @@
 # Tracking Workflow
 
+[![Release](https://img.shields.io/github/v/release/libnudget/activity?logo=github&label=latest)](https://github.com/libnudget/activity/releases)
+
 A reusable GitHub Action for tracking project activity in a central issue.
 
 ## Usage
