@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Coccinella-Labs/activity/main/.github/assets/thumbnail.png" alt="activity" width="100%">
+</p>
+
 # Tracking Workflow
 
 [![Release](https://img.shields.io/github/v/release/libnudget/activity?logo=github&label=latest)](https://github.com/libnudget/activity/releases)
